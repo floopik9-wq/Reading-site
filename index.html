@@ -61,6 +61,147 @@
   </style>
 </head>
 <body>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Алиса в стране чудес</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button id="theme-toggle">🌙 Темная тема</button>
+
+  <div class="book">
+    <h1>Алиса в стране чудес</h1>
+
+    <div class="chapter">
+      <h2>Глава 1. Вниз по кроличьей норе</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Alice_par_John_Tenniel_04.png" alt="Алиса и кролик" class="illustration">
+      <p>
+        Алиса сидела на берегу и уже начинала скучать...  
+        Вдруг мимо пробежал белый кролик с розовыми глазами.  
+        «Ох, я опаздываю!» — сказал он и юркнул в нору.
+      </p>
+    </div>
+
+    <div class="chapter">
+      <h2>Глава 2. Слезы Алисы</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Alice_par_John_Tenniel_07.png" alt="Алиса плачет" class="illustration">
+      <p>
+        Алиса становилась всё больше и больше, пока её слёзы не превратились в море.  
+        Она едва не утонула в них, но вскоре встретила удивительных существ...
+      </p>
+    </div>
+  </div>
+
+  <style>
+    body {
+      font-family: "Playfair Display", serif;
+      transition: background 0.5s, color 0.5s;
+      background: url("https://www.transparenttextures.com/patterns/aged-paper.png");
+      background-size: cover;
+      color: #222;
+    }
+
+    body.dark {
+      background: url("https://www.transparenttextures.com/patterns/dark-denim-3.png");
+      color: #f5f5f5;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff8a00, #e52e71);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      font-size: 16px;
+      z-index: 1000;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .book {
+      max-width: 750px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(6px);
+      border: 10px double #c79d64;
+      animation: fadeIn 1s ease-in;
+    }
+    body.dark .book {
+      background: rgba(30,30,30,0.9);
+      border: 10px double #888;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-family: "Cinzel Decorative", cursive;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 18px;
+      text-align: justify;
+    }
+
+    .illustration {
+      display: block;
+      margin: 20px auto;
+      max-width: 60%;
+      border: 6px solid #c79d64;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: 0.4s;
+    }
+    .illustration:hover {
+      transform: scale(1.05);
+    }
+    body.dark .illustration {
+      border-color: #aaa;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+
+    function updateTheme() {
+      if (document.body.classList.contains("dark")) {
+        toggleBtn.textContent = "☀️ Светлая тема";
+        localStorage.setItem("theme", "dark");
+      } else {
+        toggleBtn.textContent = "🌙 Темная тема";
+        localStorage.setItem("theme", "light");
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      updateTheme();
+    });
+
+    // При загрузке страницы проверяем сохранённую тему
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+    }
+    updateTheme();
+  </script>
+</body>
+</html>
   <h1>Книга 1: Алиса в стране чудес</h1>
 <p>Глава 1. Вниз по кроличьей норе...</p>
 <p>...</p>
