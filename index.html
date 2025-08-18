@@ -3,6 +3,60 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Reading</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: "Playfair Display", serif;
+    transition: background 0.5s, color 0.5s;
+    background: url("https://www.transparenttextures.com/patterns/aged-paper.png");
+    background-size: cover;
+    color: #222;
+  }
+  body.dark {
+    background: url("https://www.transparenttextures.com/patterns/dark-denim-3.png");
+    color: #f5f5f5;
+  }
+
+  #theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    font-size: 16px;
+    z-index: 1000;
+  }
+  #theme-toggle:hover {
+    transform: scale(1.1);
+  }
+
+  .book {
+    max-width: 750px;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+    border: 10px double #c79d64;
+  }
+  body.dark .book {
+    background: rgba(30,30,30,0.9);
+    border: 10px double #888;
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-family: "Cinzel Decorative", cursive;
+  }
+</style>
   <style>
     body {
       font-family: Georgia, serif;
@@ -803,91 +857,7 @@
 
 Сестра улыбнулась, и Алиса задумалась:
 «Как всё это было странно и чудесно! Но когда-нибудь я вырасту… и расскажу детям такие же сказки».
-    <button id="theme-toggle">🌙 Переключить тему</button>
-
-<div class="book">
-  <h1>Алиса в стране чудес</h1>
-  <div class="chapter">
-    <h2>Глава 1. Вниз по кроличьей норе</h2>
-    <p>Здесь текст главы...</p>
-  </div>
-</div>
-
-<style>
-  body {
-    font-family: "Playfair Display", serif;
-    transition: background 0.5s, color 0.5s;
-    background: url("https://www.transparenttextures.com/patterns/aged-paper.png");
-    background-size: cover;
-    color: #222;
-  }
-
-  body.dark {
-    background: url("https://www.transparenttextures.com/patterns/dark-denim-3.png");
-    color: #f5f5f5;
-  }
-
-  #theme-toggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #ff8a00, #e52e71);
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: 0.3s;
-    font-size: 16px;
-  }
-  #theme-toggle:hover {
-    transform: scale(1.1) rotate(-2deg);
-  }
-
-  .book {
-    max-width: 750px;
-    margin: 80px auto;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(6px);
-    border: 8px double #c79d64;
-    animation: fadeIn 1s ease-in;
-  }
-  body.dark .book {
-    background: rgba(30,30,30,0.85);
-    border: 8px double #888;
-  }
-
-  h1, h2 {
-    text-align: center;
-    font-family: "Cinzel Decorative", cursive;
-  }
-
-  p {
-    line-height: 1.7;
-    font-size: 18px;
-    text-align: justify;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
-<script>
-  const toggleBtn = document.getElementById("theme-toggle");
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    toggleBtn.textContent = document.body.classList.contains("dark") 
-      ? "☀️ Переключить тему" 
-      : "🌙 Переключить тему";
-  });
-</script>
-  </div>  <div class="controls">
+    </div>  <div class="controls">
     <button onclick="prevChapter()">⬅ Previous</button>
     <button onclick="nextChapter()">Next ➡</button>
   </div>  <script>
